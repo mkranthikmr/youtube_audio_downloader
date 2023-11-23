@@ -9,14 +9,14 @@ Created on Fri Nov 24 02:04:21 2023
 
 from pytube import YouTube
 
-destination = r"F:\Python Projects\mp3downloader\songs"
-video_link = "https://www.youtube.com/watch?v=5Eqb_-j3FDA"
+#destination = input("Enter the destination location to save songs: ")
+video_link = input("Enter the youtubeurl: ")
 
 
 try:
     selected_video = YouTube(video_link)
     audio = selected_video.streams.filter(only_audio=True, subtype='mp4', abr="128kbps").first()
-    audio.download(destination)
+    audio.download("./songs")
     print("Download Completed Successfully")
 except Exception as e:
         print(f"An error occurred: {str(e)}")
